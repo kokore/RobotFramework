@@ -1,9 +1,10 @@
 *** Settings ***
 Library    Selenium2Library
 
-Suite Teardown     Close Browser
+Suite teardown    Close all browsers
 *** Variables ***
 ${url_truev4}        https://accounts.trueid-alpha.net/signin/
+${url_truev4_title}  TrueID  - the single access of infinite convergence experience
 ${input_user}          //*[@name="account"]
 ${input_pass}          //*[@id="password"]
 ${btn_goto_page_login}           //*[@class="btn-style red-border-btn full-width-btn"]
@@ -29,6 +30,9 @@ Click Button goto Login
      [Arguments]    ${btn}
      Element Should Be Visible ${btn}
      Click Element ${btn}
+Verify FullPageV4 page
+    [Arguments]                ${title}
+    Title Should Be            ${title}
 Verify Login Fail
    [Arguments]        ${xpath}
    Element Should Be Visible        ${xpath}
@@ -41,6 +45,7 @@ Login trueAAAv4 - Fail
     Open Browser    about:blank    chrome
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
+    Verify FullPageV4 page           ${url_truev4_title}
     Input Username and Password    ${input_user}     ${input_pass}       ${username_fail}      ${password_fail}
     Click Button Login          ${btn_page_login}
     Verify Login Fail           ${txt_message_fail}
@@ -49,6 +54,7 @@ Login trueAAAv4 - success
     Open Browser    about:blank    chrome
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
+    Verify FullPageV4 page           ${url_truev4_title}
     Input Username and Password    ${input_user}     ${input_pass}       ${username_success}      ${password_success}
     Click Button Login          ${btn_page_login}
     Verify Login Success        ${txt_message_success}
