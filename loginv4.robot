@@ -3,18 +3,18 @@ Library    Selenium2Library
 
 Suite teardown    Close all browsers
 *** Variables ***
-${url_truev4}        https://accounts.trueid-alpha.net/signin/
-${url_truev4_title}  TrueID  - the single access of infinite convergence experience
-${input_user}          //*[@name="account"]
-${input_pass}          //*[@id="password"]
-${btn_goto_page_login}           //*[@class="btn-style red-border-btn full-width-btn"]
-${btn_page_login}       //*[@class="btn btn-primary"]
-${txt_message_fail}          //*[@class="form-text text-remark text-left"]
-${txt_message_success}         //*[@class="home-page banner-affix grayscale-mode"]
-${username_fail}            11111111
-${password_fail}            12345678
-${username_success}            0991060745
-${password_success}            1234567890
+${url_truev4}            https://accounts.trueid-alpha.net/signin/
+${url_truev4_title}      TrueID  - the single access of infinite convergence experience
+${input_user}            //*[@name="account"]
+${input_pass}            //*[@id="password"]
+${btn_goto_page_login}   //*[@class="btn-style red-border-btn full-width-btn"]
+${btn_page_login}        //*[@class="btn btn-primary"]
+${txt_message_fail}      //*[@class="form-text text-remark text-left"]
+${txt_message_success}   //*[@class="home-page banner-affix grayscale-mode"]
+${username_fail}         11111111
+${password_fail}         12345678
+${username_success}      0991060745
+${password_success}      1234567890
 *** Keywords ***
 Input Username and Password
      [Arguments]      ${xpath_user}       ${xpath_pass}     ${username}       ${password}
