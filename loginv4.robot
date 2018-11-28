@@ -11,7 +11,7 @@ ${input_pass}            //*[@id="password"]
 ${btn_goto_page_login}   //*[@class="btn-style red-border-btn full-width-btn"]
 ${btn_page_login}        //*[@class="btn btn-primary"]
 ${txt_message_fail}      //*[@class="form-text text-remark text-left"]
-${txt_message_success}   //*[@class="orm-text text-remark text-left"]
+${txt_message_success}   //*[@class="form-text text-remark text-left"]
 ${username_fail_case1}         11111111
 ${password_fail_case1}         12345678
 ${username_fail_case2}         
