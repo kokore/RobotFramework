@@ -11,9 +11,11 @@ ${input_pass}            //*[@id="password"]
 ${btn_goto_page_login}   //*[@class="btn-style red-border-btn full-width-btn"]
 ${btn_page_login}        //*[@class="btn btn-primary"]
 ${txt_message_fail}      //*[@class="form-text text-remark text-left"]
-${txt_message_success}   //*[@class="home-page banner-affix grayscale-mode"]
-${username_fail}         11111111
-${password_fail}         12345678
+${txt_message_success}   //*[@class="orm-text text-remark text-left"]
+${username_fail_case1}         11111111
+${password_fail_case1}         12345678
+${username_fail_case2}         
+${password_fail_case2}         
 ${username_success}      0991060745
 ${password_success}      1234567890
 *** Keywords ***
@@ -39,15 +41,24 @@ Verify Login Fail
    Element Should Be Visible        ${xpath}
 Verify Login Success
    [Arguments]        ${xpath}
-   Element Should Be Visible        ${xpath}
+    Element Should Not Be Visible   ${xpath}
 *** Test Cases ***
-Login trueAAAv4 - Fail
+Login trueAAAv4 - Fail Case 1
     [tags]    fail
     Open Browser    about:blank    chrome
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
     Verify FullPageV4 page           ${url_truev4_title}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail}      ${password_fail}
+    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail_case1}      ${password_fail_case1}
+    Click Button Login          ${btn_page_login}
+    Verify Login Fail           ${txt_message_fail}
+Login trueAAAv4 - Fail Case 2
+    [tags]    fail
+    Open Browser    about:blank    chrome
+    Go To           ${url_truev4}
+    Click Button Login          ${btn_goto_page_login}
+    Verify FullPageV4 page           ${url_truev4_title}
+    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail_case2}      ${password_fail_case2}
     Click Button Login          ${btn_page_login}
     Verify Login Fail           ${txt_message_fail}
 Login trueAAAv4 - success
