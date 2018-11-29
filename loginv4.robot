@@ -44,8 +44,8 @@ Verify Login Success
     Element Should Not Be Visible   ${xpath}
 *** Test Cases ***
 Login trueAAAv4 - Fail Case 1 Chrome
-    [tags]    fail
-    Open Browser    about:blank    chrome
+    [tags]    Chrome fail 1
+    Open Browser    about:blank    headlesschrome
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
     Verify FullPageV4 page           ${url_truev4_title}
@@ -53,8 +53,8 @@ Login trueAAAv4 - Fail Case 1 Chrome
     Click Button Login          ${btn_page_login}
     Verify Login Fail           ${txt_message_fail}
 Login trueAAAv4 - Fail Case 2 Chorme
-    [tags]    fail
-    Open Browser    about:blank    chrome
+    [tags]    Chrome fail 2
+    Open Browser    about:blank    headlesschrome
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
     Verify FullPageV4 page           ${url_truev4_title}
@@ -62,8 +62,8 @@ Login trueAAAv4 - Fail Case 2 Chorme
     Click Button Login          ${btn_page_login}
     Verify Login Fail           ${txt_message_fail}
 Login trueAAAv4 - success Chorme
-    [tags]    success
-    Open Browser    about:blank    chrome
+    [tags]    Chrome success
+    Open Browser    about:blank    headlesschrome
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
     Verify FullPageV4 page           ${url_truev4_title}
@@ -73,8 +73,8 @@ Login trueAAAv4 - success Chorme
 
 
 Login trueAAAv4 - Fail Case 1 Firefox
-    [tags]    fail
-    Open Browser    about:blank    ff
+    [tags]    Firefox fail 1
+    Open Browser    about:blank    headlessfirefox
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
     Verify FullPageV4 page           ${url_truev4_title}
@@ -82,8 +82,8 @@ Login trueAAAv4 - Fail Case 1 Firefox
     Click Button Login          ${btn_page_login}
     Verify Login Fail           ${txt_message_fail}
 Login trueAAAv4 - Fail Case 2 Firefox
-    [tags]    fail
-    Open Browser    about:blank    ff
+    [tags]    Firefox fail 2
+    Open Browser    about:blank    headlessfirefox
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
     Verify FullPageV4 page           ${url_truev4_title}
@@ -91,8 +91,8 @@ Login trueAAAv4 - Fail Case 2 Firefox
     Click Button Login          ${btn_page_login}
     Verify Login Fail           ${txt_message_fail}
 Login trueAAAv4 - success Firefox
-    [tags]    success
-    Open Browser    about:blank    ff
+    [tags]    Firefox success
+    Open Browser    about:blank    headlessfirefox
     Go To           ${url_truev4}
     Click Button Login          ${btn_goto_page_login}
     Verify FullPageV4 page           ${url_truev4_title}
@@ -100,60 +100,3 @@ Login trueAAAv4 - success Firefox
     Click Button Login          ${btn_page_login}
     Verify Login Success        ${txt_message_success}
 
-
-Login trueAAAv4 - Fail Case 1 Safari
-    [tags]    fail
-    Open Browser    about:blank    safari
-    Go To           ${url_truev4}
-    Click Button Login          ${btn_goto_page_login}
-    Verify FullPageV4 page           ${url_truev4_title}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail_case1}      ${password_fail_case1}
-    Click Button Login          ${btn_page_login}
-    Verify Login Fail           ${txt_message_fail}
-Login trueAAAv4 - Fail Case 2 Safari
-    [tags]    fail
-    Open Browser    about:blank    safari
-    Go To           ${url_truev4}
-    Click Button Login          ${btn_goto_page_login}
-    Verify FullPageV4 page           ${url_truev4_title}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail_case2}      ${password_fail_case2}
-    Click Button Login          ${btn_page_login}
-    Verify Login Fail           ${txt_message_fail}
-Login trueAAAv4 - success Safari
-    [tags]    success
-    Open Browser    about:blank    safari
-    Go To           ${url_truev4}
-    Click Button Login          ${btn_goto_page_login}
-    Verify FullPageV4 page           ${url_truev4_title}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_success}      ${password_success}
-    Click Button Login          ${btn_page_login}
-    Verify Login Success        ${txt_message_success}
-
-
-Login trueAAAv4 - Fail Case 1 Internet Explorer
-    [tags]    fail
-    Open Browser    about:blank    ie
-    Go To           ${url_truev4}
-    Click Button Login          ${btn_goto_page_login}
-    Verify FullPageV4 page           ${url_truev4_title}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail_case1}      ${password_fail_case1}
-    Click Button Login          ${btn_page_login}
-    Verify Login Fail           ${txt_message_fail}
-Login trueAAAv4 - Fail Case 2 Internet Explorer
-    [tags]    fail
-    Open Browser    about:blank    ie
-    Go To           ${url_truev4}
-    Click Button Login          ${btn_goto_page_login}
-    Verify FullPageV4 page           ${url_truev4_title}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_fail_case2}      ${password_fail_case2}
-    Click Button Login          ${btn_page_login}
-    Verify Login Fail           ${txt_message_fail}
-Login trueAAAv4 - success Internet Explorer
-    [tags]    success
-    Open Browser    about:blank    ie
-    Go To           ${url_truev4}
-    Click Button Login          ${btn_goto_page_login}
-    Verify FullPageV4 page           ${url_truev4_title}
-    Input Username and Password    ${input_user}     ${input_pass}       ${username_success}      ${password_success}
-    Click Button Login          ${btn_page_login}
-    Verify Login Success        ${txt_message_success}
