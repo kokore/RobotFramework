@@ -1,6 +1,5 @@
 *** Settings ***
 Library    Selenium2Library
-Library   XvfRobot
 
 Suite teardown    Close all browsers
 *** Variables ***
