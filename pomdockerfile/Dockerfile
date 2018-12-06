@@ -1,12 +1,16 @@
 FROM ubuntu:16.04
 
+USER root
+
 MAINTAINER Pom
 
-RUN apt-get update && apt-get clean && apt-get install -y wget git unzip xvfb libxi6 libgconf-2-4 apt-transport-https
+RUN apt-get update && apt-get clean &&  apt-get install -y --no-install-recommends apt-utils
+
+RUN apt-get install -y wget git unzip apt-transport-https ca-certificates curl ufw default-jre software-properties-common
 
 #install jenkins 
 
-RUN wget --no-check-certificate -qO - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
+RUN wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key |  apt-key add -
 
 RUN echo deb https://pkg.jenkins.io/debian-stable binary/ |  tee /etc/apt/sources.list.d/jenkins.list
 
@@ -14,9 +18,15 @@ RUN apt-get update && apt-get -y install jenkins
 
 #install java 8 
 
-RUN apt-get install -y openjdk-8-jre 
+RUN add-apt-repository ppa:webupd8team/java
 
-ENV PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin/:${PATH}"
+RUN apt update &&  apt install oracle-java8-installer
+
+RUN apt-get install oracle-java8-set-default
+
+ENV PATH="/usr/lib/jvm/java-8-oracle:${PATH}"
+
+ENV PATH="/usr/lib/jvm/java-8-oracle/jre:${PATH}"
 
 #reinstall jenkins 
 
@@ -48,7 +58,7 @@ RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.z
 
 RUN unzip chromedriver_linux64.zip
 
-RUN mv chromedriver /usr/bin/chromedriver && chown root:root /usr/bin/chromedriver && chmod +x /usr/bin/chromedriver 
+RUN cp chromedriver /usr/local/bin/chromedriver && chown root:root /usr/local/bin/chromedriverchromedriver && chmod +x /usr/local/bin/chromedriverchromedriver 
 
 #install GeckoDriver
 
@@ -56,10 +66,11 @@ RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.23.0/geckod
 
 RUN tar -xvzf geckodriver*
 
-RUN mv geckodriver /usr/bin/geckodriver && chown root:root /usr/bin/geckodriver && chmod +x /usr/bin/geckodriver 
+RUN cp geckodriver /usr/local/bin/geckodriver && chown root:root /usr/local/bin/geckodriver && chmod +x /usr/local/bin/geckodriver 
 
 #start jenkins 
 
-#RUN systemctl start jenkins && systemctl status jenkins && ufw allow 8081 && ufw status && ufw allow OpenSSH && ufw enable
+RUN systemctl start jenkins && systemctl status jenkins && ufw allow 8081 && ufw status && ufw allow OpenSSH && ufw enable
 
+WORKDIR /home
 
