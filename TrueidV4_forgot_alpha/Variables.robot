@@ -24,7 +24,7 @@ ${password_invalid}         1233
 ${username_invalid_empty}         
 ${password_invalid_empty}         
 ${username_valid}      0991060745
-${password_valid}      1234567890
+${password_valid}      Pomkub1!
 
 ${otp_invalid_empty}      
 ${otp_invalid}      293423
