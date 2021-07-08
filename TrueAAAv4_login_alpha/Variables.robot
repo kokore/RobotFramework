@@ -17,5 +17,5 @@ ${username_invalid}         11111111
 ${password_invalid}         12345678
 ${username_invalid_empty}         
 ${password_invalid_empty}         
-${username_valid}      0991060745
-${password_valid}      Pomkub1!
+${username_valid}      123
+${password_valid}      123
